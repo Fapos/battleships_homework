@@ -320,7 +320,8 @@ class Game:
         self.user = User(self.user_board, self.ai_board)
         self.ai = AI(self.ai_board, self.user_board)
 
-    def random_board(self, board: Board) -> Board:
+    @staticmethod
+    def random_board(board: Board) -> Board:
         is_created = False
         while not is_created:
             count_failed = 0
@@ -410,7 +411,7 @@ class Game:
             print('---ДОСКА КОМПЬЮТЕРА---')
             self.ai_board.show()
             print('----------------------')
-            
+
             if self.user_board.living_ships_cnt == 0:
                 print('Победил компьютер!')
                 is_game = False
